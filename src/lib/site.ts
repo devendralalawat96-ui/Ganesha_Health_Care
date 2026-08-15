@@ -31,13 +31,8 @@ export const site = {
   kgmid: "/g/11tf9jrlv3",
   /** Short share link from the Google Business Profile — opens the listing. */
   gbpUrl: "https://share.google/ROSN6NOdjDtkWRZkF",
-  /**
-   * "Write a review" link. The writereview endpoint needs a ChIJ… Place ID, not
-   * the KGMID we have, so it bounces to a sign-in page. The share link opens the
-   * listing where the review button lives, which works for everyone. Replace via
-   * env with the exact g.page/r/…/review URL from the GBP dashboard when handy.
-   */
-  gbpReviewUrl: process.env.NEXT_PUBLIC_GBP_REVIEW_URL ?? "https://share.google/ROSN6NOdjDtkWRZkF",
+  /** Direct "write a review" deep link, from the GBP dashboard's "Get more reviews" short link. */
+  gbpReviewUrl: process.env.NEXT_PUBLIC_GBP_REVIEW_URL ?? "https://g.page/r/CWy5dvxYLaHQEBM/review",
   mapsEmbedUrl: process.env.NEXT_PUBLIC_MAPS_EMBED_URL ?? "",
   instagram: "https://www.instagram.com/ganesha_home_health_care/",
   instagramHandle: "@ganesha_home_health_care",
