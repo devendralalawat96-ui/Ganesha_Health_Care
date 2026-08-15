@@ -29,23 +29,24 @@ export default async function LandingPage({ params }: Props) {
   if (!landing) notFound();
 
   const service = getService(landing.relatedService);
+  const city = landing.city ?? site.city;
+  const address = landing.address ?? site.address;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: landing.h1,
     description: landing.description,
-    areaServed: { "@type": "City", name: site.city },
+    areaServed: { "@type": "City", name: city },
     provider: {
       "@type": "MedicalBusiness",
       name: site.name,
       telephone: site.phone,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "375, Bajrang Nagar",
-        addressLocality: site.city,
+        streetAddress: address,
+        addressLocality: city,
         addressRegion: "Madhya Pradesh",
-        postalCode: site.postalCode,
         addressCountry: "IN",
       },
     },
@@ -83,7 +84,7 @@ export default async function LandingPage({ params }: Props) {
             ))}
           </ul>
 
-          <h2 className="mt-10 text-xl">Why families in {site.city} choose us</h2>
+          <h2 className="mt-10 text-xl">Why families in {city} choose us</h2>
           <div className="mt-4 grid gap-5 sm:grid-cols-2">
             {[
               ["Police-verified staff", "Every caregiver is background checked before their first duty."],
@@ -98,10 +99,12 @@ export default async function LandingPage({ params }: Props) {
             ))}
           </div>
 
-          <h2 className="mt-10 text-xl">Areas we cover in {site.city}</h2>
+          <h2 className="mt-10 text-xl">Areas we cover in {city}</h2>
           <p className="mt-3 text-[14.5px] leading-relaxed text-inksoft">
-            {site.serviceAreas.join(", ")} and all surrounding localities. Our office is at{" "}
-            {site.address}.
+            {landing.city
+              ? `${city} and all surrounding localities.`
+              : `${site.serviceAreas.join(", ")} and all surrounding localities.`}{" "}
+            Our {landing.city ? `${city} branch` : "office"} is at {address}.
           </p>
         </div>
 

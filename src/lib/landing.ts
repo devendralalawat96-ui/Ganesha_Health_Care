@@ -6,6 +6,10 @@ export type Landing = {
   intro: string;
   points: string[];
   relatedService: string;
+  /** Branch city, when the page targets somewhere other than the Indore head office. */
+  city?: string;
+  /** Branch address, shown and used in that page's LocalBusiness schema. */
+  address?: string;
 };
 
 export const landingPages: Landing[] = [
@@ -196,6 +200,82 @@ export const landingPages: Landing[] = [
       "Delivery, installation and collection included",
     ],
     relatedService: "medical-equipment-rental",
+  },
+  {
+    slug: "home-nursing-services-in-ujjain",
+    h1: "Home Nursing & Patient Care in Ujjain",
+    title: "Home Nursing Services in Ujjain",
+    description:
+      "Trained, police-verified nurses and caregivers at home in Ujjain. Elderly care, post-surgery recovery and 24×7 patient attendants.",
+    intro:
+      "Our Ujjain branch places trained nurses and caregivers in homes across the city — the same police-verified staff and replacement guarantee we run from our Indore head office.",
+    points: [
+      "Injections, IV drips, wound dressing and vitals monitoring at home",
+      "Elderly care, bedridden patient care and post-surgery recovery",
+      "Day, night and 24-hour shifts, including Sundays and holidays",
+      "Same-day placement for hospital-discharge cases",
+      "Police-verified male and female caregivers",
+    ],
+    relatedService: "home-nursing-care",
+    city: "Ujjain",
+    address: "Varahmihir Road, Ujjain City 456006",
+  },
+  {
+    slug: "home-nursing-services-in-dhar",
+    h1: "Home Nursing & Patient Care in Dhar",
+    title: "Home Nursing Services in Dhar & Pithampur",
+    description:
+      "Trained nurses and caregivers at home in Dhar and Pithampur. Elderly care, post-surgery recovery and 24×7 patient attendants.",
+    intro:
+      "Our Dhar branch, based at Pithampur, covers Dhar district with trained nurses and caretakers for home duty — clinical care and daily-living support in familiar surroundings.",
+    points: [
+      "Home nursing: injections, IV drips, dressing and monitoring",
+      "Elderly care and full support for bedridden patients",
+      "Post-surgery and discharge care at home",
+      "12-hour, 24-hour and live-in shift options",
+      "Police-verified staff with a replacement guarantee",
+    ],
+    relatedService: "home-nursing-care",
+    city: "Dhar",
+    address: "66A B Road, Pithampur 454775",
+  },
+  {
+    slug: "home-nursing-services-in-khargone",
+    h1: "Home Nursing & Patient Care in Khargone",
+    title: "Home Nursing Services in Khargone",
+    description:
+      "Trained, police-verified nurses and caregivers at home in Khargone. Elderly care, post-surgery recovery and 24×7 patient attendants.",
+    intro:
+      "Our Khargone branch places trained nurses and caregivers in homes across the town and surrounding areas, with the same verification and replacement guarantee as our head office.",
+    points: [
+      "Nursing procedures at home: injections, drips, wound dressing",
+      "Elderly care, companion care and bedridden patient support",
+      "Post-operative and long-term recovery care",
+      "Day, night and 24-hour cover",
+      "Police-verified male and female caregivers",
+    ],
+    relatedService: "home-nursing-care",
+    city: "Khargone",
+    address: "Ring Road, Main Khargone 451001",
+  },
+  {
+    slug: "home-nursing-services-in-sagar",
+    h1: "Home Nursing & Patient Care in Sagar",
+    title: "Home Nursing Services in Sagar",
+    description:
+      "Trained, police-verified nurses and caregivers at home in Sagar. Elderly care, post-surgery recovery and 24×7 patient attendants.",
+    intro:
+      "Our Sagar branch provides trained nurses and caretakers for home duty across the city — from short daily visits to full-time live-in care.",
+    points: [
+      "Home nursing: injections, IV drips, dressing and vitals charting",
+      "Elderly care and daily-living support at home",
+      "Bedridden and post-surgery patient care",
+      "Flexible shifts from 12 hours to full-time live-in",
+      "Police-verified staff, replacement guarantee included",
+    ],
+    relatedService: "home-nursing-care",
+    city: "Sagar",
+    address: "Shree Ram Colony, Sagar Cantt",
   },
 ];
 
