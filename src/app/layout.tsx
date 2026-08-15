@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     url: site.url,
   },
   robots: { index: true, follow: true },
+  verification: { google: "gR2Ka6Ui6ZYTrPjp1br4-PutKpMb-hL6OKf5jT82YNU" },
 };
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
