@@ -21,8 +21,8 @@ export default function InstitutePage() {
     <div className="container-page py-14">
       <div className="relative mb-10 aspect-[16/9] overflow-hidden rounded-3xl">
         <Image
-          src={img.realTraining}
-          alt="A caregiver training session in progress"
+          src={img.trainingClassroom2}
+          alt="Devendra Lalawat leading a phlebotomy training session at STEP Academy"
           fill
           priority
           sizes="100vw"
@@ -82,6 +82,21 @@ export default function InstitutePage() {
           </p>
         </div>
       </div>
+
+      <figure className="mt-12">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-2xl">
+          <Image
+            src={img.trainingClassroom1}
+            alt="A batch of caregiver trainees in class with Devendra Lalawat"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+        <figcaption className="mt-2 text-[12px] text-sage">
+          A caregiver training batch in session
+        </figcaption>
+      </figure>
 
       <div className="mt-12 card bg-brand-soft/40">
         <h2 className="font-serif text-xl">Apply for admission</h2>

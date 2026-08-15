@@ -10,6 +10,11 @@ export const img = {
   realOffice2: "/img/real-office2.jpg",
   realCaregiverClient: "/img/real-caregiver-client.jpg",
   founderDevendra: "/img/founder-devendra.jpg",
+  patientCaregiver1: "/img/patient-caregiver-1.jpg",
+  patientCaregiver2: "/img/patient-caregiver-2.jpg",
+  patientCaregiver3: "/img/patient-caregiver-3.jpg",
+  trainingClassroom1: "/img/training-classroom-1.jpg",
+  trainingClassroom2: "/img/training-classroom-2.jpg",
 
   hero: "/img/hero-care.jpg",
   elderly: "/img/elderly-care.jpg",

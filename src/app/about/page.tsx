@@ -148,6 +148,30 @@ export default function AboutPage() {
           </div>
         </aside>
       </div>
+
+      <div className="mt-16">
+        <h2 className="text-xl">Moments of care</h2>
+        <p className="mt-2 max-w-2xl text-[14.5px] leading-relaxed text-inksoft">
+          Shared with permission from the families we work with.
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          {[
+            { src: img.patientCaregiver1, alt: "A caregiver spending time with an elderly patient at home" },
+            { src: img.patientCaregiver2, alt: "A caregiver checking on a patient" },
+            { src: img.patientCaregiver3, alt: "A caregiver with an elderly patient at home" },
+          ].map((photo) => (
+            <div key={photo.src} className="relative aspect-[3/4] overflow-hidden rounded-2xl">
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
