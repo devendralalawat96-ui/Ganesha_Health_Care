@@ -36,86 +36,74 @@ export default async function HomePage() {
       <section className="relative overflow-hidden bg-white">
         <div className="container-page grid items-center gap-12 py-14 lg:grid-cols-[1.05fr_1fr] lg:py-20">
           <Reveal>
-            <p className="inline-flex items-center gap-2 rounded-full bg-brand-soft px-3.5 py-1.5 text-[12px] font-semibold text-brand-dark">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-bright opacity-70" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-bright" />
-              </span>
-              Available 24×7 across {site.city}
+            <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-brand">
+              {site.motto}
             </p>
 
-            <p className="mt-6 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+            <p className="mt-3 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
               <span className="font-deva text-[clamp(18px,2.4vw,23px)] font-medium text-brand" lang="sa">
                 &ldquo;{site.mottoSanskrit}&rdquo;
               </span>
               <span className="text-[12.5px] text-sage">{site.mottoSanskritGloss}</span>
             </p>
 
-            <h1 className="mt-3 text-[clamp(32px,5.4vw,50px)] leading-[1.08]">
-              Professional care for your loved ones,{" "}
-              <span className="text-brand">right at home</span>
+            <h1 className="mt-4 text-[clamp(34px,5.8vw,54px)] font-bold leading-[1.05]">
+              Quality Care
+              <br />
+              Right at Home <span aria-hidden>💚</span>
             </h1>
 
             <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-inksoft">
-              Trained nurses and caretakers for elderly care, post-surgery recovery, bedridden
-              patients and ICU setup at home — arriving the same day when it is urgent.
+              Professional nursing and caregiving services for your loved ones. Because every
+              life deserves care and dignity.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={telHref()} className="btn-primary shadow-sm">
-                Call {site.phoneDisplay}
+                Call Now
               </a>
               <a href={waHref()} className="btn-outline">WhatsApp Us</a>
-              <Link href="/pricing" className="btn-outline">Estimate the cost</Link>
             </div>
 
-            <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2">
-              <span className="flex items-center gap-1.5 text-[12.5px] font-semibold uppercase tracking-[0.06em] text-sage">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="h-4 w-4" aria-hidden>
-                  <path d="M12 21s-6.5-5.1-6.5-10a6.5 6.5 0 1 1 13 0c0 4.9-6.5 10-6.5 10Z" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="12" cy="11" r="2.4" />
-                </svg>
-                We serve
-              </span>
-              <ul className="flex flex-wrap gap-1.5">
-                {site.cities.map((c) => (
-                  <li
-                    key={c}
-                    className={`rounded-full px-3 py-1 text-[12.5px] font-medium ${
-                      c === site.city
-                        ? "bg-brand text-cream"
-                        : "border border-line bg-white text-inksoft"
-                    }`}
-                  >
-                    {c}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-9 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-line pt-6 sm:flex sm:flex-wrap sm:items-center sm:gap-x-8">
-              <div>
-                <p className="font-serif text-2xl text-brand">
-                  <CountUp to={site.stats.patientsServed} suffix="+" />
-                </p>
-                <p className="text-[12px] text-inksoft">Patients served</p>
-              </div>
-              <div>
-                <p className="font-serif text-2xl text-brand">
-                  <CountUp to={site.stats.caregivers} suffix="+" />
-                </p>
-                <p className="text-[12px] text-inksoft">Trained caregivers</p>
-              </div>
-              <div>
-                <p className="font-serif text-2xl text-brand">
-                  <CountUp to={site.stats.yearsExperience} suffix="+" />
-                </p>
-                <p className="text-[12px] text-inksoft">Years of experience</p>
-              </div>
-              <div>
-                <p className="font-serif text-2xl text-brand">{rating} ★</p>
-                <p className="text-[12px] text-inksoft">{count} Google reviews</p>
-              </div>
+            <div className="mt-8 grid grid-cols-2 gap-4 rounded-2xl border border-line bg-white/60 p-5 sm:flex sm:flex-wrap sm:gap-x-8">
+              {[
+                { label: "Police Verified\nStaff", icon: "shield" },
+                { label: "24/7\nAvailable", icon: "clock" },
+                { label: "Care at\nHome", icon: "home" },
+                { label: "Compassionate\nCare", icon: "heart" },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
+                  <span className="grid h-9 w-9 place-items-center rounded-full bg-brand-soft text-brand">
+                    {item.icon === "shield" && (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4.5 w-4.5" aria-hidden>
+                        <path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3Z" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="m9 12 2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
+                    {item.icon === "clock" && (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4.5 w-4.5" aria-hidden>
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 7v5l3 3" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
+                    {item.icon === "home" && (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4.5 w-4.5" aria-hidden>
+                        <path d="M3 11.5 12 4l9 7.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M5.5 10v9a1 1 0 0 0 1 1H17.5a1 1 0 0 0 1-1v-9" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M9.5 20v-4.5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V20" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
+                    {item.icon === "heart" && (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4.5 w-4.5" aria-hidden>
+                        <path d="M12 21s-6.5-5.1-6.5-10a6.5 6.5 0 1 1 13 0c0 4.9-6.5 10-6.5 10Z" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
+                  </span>
+                  <p className="whitespace-pre-line text-[12.5px] font-medium leading-tight text-inksoft">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
             </div>
           </Reveal>
 
@@ -146,6 +134,74 @@ export default async function HomePage() {
               </div>
             </div>
           </Reveal>
+        </div>
+
+        {/* Bottom info strip */}
+        <div className="border-t border-line bg-brand-soft/40">
+          <div className="container-page grid grid-cols-2 gap-x-6 gap-y-5 py-6 sm:flex sm:flex-wrap sm:items-center sm:justify-between">
+            <a href={telHref()} className="flex items-center gap-3">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand text-cream">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span>
+                <span className="block text-[12px] text-inksoft">Call Us</span>
+                <span className="block text-[13.5px] font-semibold">{site.phoneDisplay}</span>
+              </span>
+            </a>
+
+            <span className="flex items-center gap-3">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand text-cream">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+                  <path d="M12 21s-6.5-5.1-6.5-10a6.5 6.5 0 1 1 13 0c0 4.9-6.5 10-6.5 10Z" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="12" cy="11" r="2.4" />
+                </svg>
+              </span>
+              <span>
+                <span className="block text-[12px] text-inksoft">Serving</span>
+                <span className="block text-[13.5px] font-semibold">{site.city} &amp; Nearby Areas</span>
+              </span>
+            </span>
+
+            <span className="flex items-center gap-3">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand text-cream">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+                  <path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3Z" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M12 8v4l2.5 2.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span>
+                <span className="block text-[12px] text-inksoft">Trusted by</span>
+                <span className="block text-[13.5px] font-semibold">
+                  <CountUp to={site.stats.patientsServed} suffix="+" /> Happy Families
+                </span>
+              </span>
+            </span>
+
+            <span className="flex items-center gap-3">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand text-cream">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <span>
+                <span className="block text-[12px] text-inksoft">24x7 Support</span>
+                <span className="block text-[13.5px] font-semibold">Always Here for You</span>
+              </span>
+            </span>
+
+            <span className="flex items-center gap-3">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand text-cream text-[13px] font-bold">
+                {rating}★
+              </span>
+              <span>
+                <span className="block text-[12px] text-inksoft">Google Rating</span>
+                <span className="block text-[13.5px] font-semibold">{count} Reviews</span>
+              </span>
+            </span>
+          </div>
         </div>
       </section>
 
