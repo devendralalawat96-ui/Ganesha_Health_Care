@@ -129,6 +129,23 @@ export const landingPages: Landing[] = [
     relatedService: "companion-care",
   },
   {
+    slug: "caretaker-near-me-indore",
+    h1: "Caretaker Services Near Me — Indore",
+    title: "Caretaker Services Near Me in Indore",
+    description:
+      "Searching for a caretaker near you in Indore? Verified caretakers placed across every locality, day or night. Call 079747 36011.",
+    intro:
+      "Wherever you are in Indore, we place a trained caretaker close to you — from Bajrang Nagar and Vijay Nagar to Rau, Bhawarkuan and beyond. Tell us your locality and how soon you need help.",
+    points: [
+      "Caretakers placed in every locality across Indore",
+      "Same-day placement for urgent and discharge cases",
+      "Daily-living support: bathing, feeding, mobility, hygiene",
+      "12-hour, 24-hour and full-time live-in shifts",
+      "Police-verified, male and female caretakers available",
+    ],
+    relatedService: "companion-care",
+  },
+  {
     slug: "dementia-care-indore",
     h1: "Dementia Care in Indore",
     title: "Dementia Care at Home in Indore",
