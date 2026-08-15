@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-serif font-medium tracking-tight;
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-5;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition;
+  }
+  .btn-primary {
+    @apply btn bg-brand text-cream hover:bg-brand-dark;
+  }
+  .btn-outline {
+    @apply btn border border-brand text-brand hover:bg-brand-soft;
+  }
+  .card {
+    @apply rounded-xl border border-line bg-white p-6;
+  }
+  .prose-page p {
+    @apply text-inksoft leading-relaxed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Print / Save-as-PDF — invoices are the only pages meant to print.
+   The browser otherwise dumps the whole screen layout onto paper.
+   --------------------------------------------------------------- */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 14mm 16mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    font-size: 10.5pt;
+  }
+
+  /* Site chrome has no business on an invoice. */
+  header,
+  footer,
+  nav,
+  aside,
+  .print\:hidden,
+  [data-print="hide"] {
+    display: none !important;
+  }
+
+  /* Collapse the app's screen spacing so the invoice starts at the top. */
+  main,
+  main > *,
+  .container-page {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  /* The invoice card should read as a document, not a UI card. */
+  .card,
+  [data-print="sheet"] {
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  /* Single-column: kill the sidebar grid. */
+  .grid {
+    display: block !important;
+  }
+
+  /* Keep colour in the brand accents rather than washing out to grey. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  table {
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  a[href]::after {
+    content: "";
+  }
+}

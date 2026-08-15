@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+}
+
+model Caregiver {
+  id             String   @id @default(cuid())
+  name           String
+  role           String
+  phone          String?
+  /** Aadhaar / Voter ID / PAN etc. — kept for verification records only. */
+  idType         String?
+  idNumber       String?
+  qualifications String
+  experience     Int
+  languages      String
+  gender         String
+  photoUrl       String?
+  bio            String?
+  verified       Boolean  @default(true)
+  active         Boolean  @default(true)
+  createdAt      DateTime @default(now())
+
+  salaries SalaryRecord[]
+}
+
+model Invoice {
+  id            String        @id @default(cuid())
+  number        String        @unique
+  patientName   String
+  patientPhone  String
+  patientAddr   String?
+  serviceName   String
+  periodFrom    DateTime
+  periodTo      DateTime
+  amount        Int
+  paidAmount    Int           @default(0)
+  status        InvoiceStatus @default(UNPAID)
+  notes         String?
+  issuedAt      DateTime      @default(now())
+
+  payments Payment[]
+
+  @@index([patientPhone])
+  @@index([status])
+}
+
+model Payment {
+  id        String   @id @default(cuid())
+  invoiceId String
+  amount    Int
+  method    String
+  reference String?
+  paidAt    DateTime @default(now())
+
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@index([invoiceId])
+}
+
+model SalaryRecord {
+  id          String   @id @default(cuid())
+  caregiverId String
+  month       Int
+  year        Int
+  baseAmount  Int
+  bonus       Int      @default(0)
+  deductions  Int      @default(0)
+  netAmount   Int
+  paid        Boolean  @default(false)
+  paidAt      DateTime?
+  notes       String?
+  createdAt   DateTime @default(now())
+
+  caregiver Caregiver @relation(fields: [caregiverId], references: [id], onDelete: Cascade)
+
+  @@unique([caregiverId, month, year])
+  @@index([year, month])
+}
+
+enum InvoiceStatus {
+  UNPAID
+  PARTIAL
+  PAID
+  CANCELLED
+}
