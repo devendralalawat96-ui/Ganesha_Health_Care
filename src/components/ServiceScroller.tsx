@@ -34,7 +34,7 @@ export default function ServiceScroller({
             <div className="relative aspect-[16/10]">
               <Image
                 src={imageFor[s.slug]}
-                alt=""
+                alt={s.name}
                 fill
                 sizes="80vw"
                 className="object-cover"

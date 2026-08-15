@@ -58,7 +58,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div className="relative mb-8 aspect-[16/7] overflow-hidden rounded-2xl">
             <Image
               src={serviceImage(service.slug)}
-              alt=""
+              alt={`${service.name} in ${site.city}`}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 65vw"
